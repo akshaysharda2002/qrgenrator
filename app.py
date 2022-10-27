@@ -19,11 +19,8 @@ def home():
     f.save(filename)    
     dir=os.path.abspath(os.getcwd())
     pat=os.path.join(dir,filename)
-    headers = {"Authorization": "Bearer ya29.a0Aa4xrXNjUP4YerSifFb2I9crvSGFZrcgGhhC_ulQwjFmmSfvNzft6ZrvcvMy5Zmj2goFRvcnt4L1PpwPyoSHP6jUQqkcq_-fnVYT7tPyhT-EHMrJJwg-EjWXuXJlip2YjQ1Aacmj8sUwa88bRhNRmvTmhJ8xaCgYKATASARISFQEjDvL9mFqADUQ0fLoLlRMMyoDVFA0163"}
-    metadat = {
-    "name": f"{pat}",
-        "parents":["1CRB9O5nXw8S9MyoBDPFJUK2BnKdymb4C"]
-    }
+    headers = {"Authorization": "Bearer ya29.a0Aa4xrXPgahu2obdqaI4GeT7oDdLEZx5LupTUG1gf9_YkRNplq_7BYu-9wO5oNebssT2x2ysTFS8-ZLJuZfr37HyME18sqQwh8sAdlY8KS50e0SYfEO9koD3gB-QvErr861b-MBz4wCsW1vwYGTggkJPcKpzmaCgYKATASARMSFQEjDvL9Vjhx3hs8F1cSL5GmNXAGmg0163"}
+    metadat = {"name": "{pat}".format(pat=pat),"parents":["1CRB9O5nXw8S9MyoBDPFJUK2BnKdymb4C"]}
     files = {
     'data': ('metadata', json.dumps(metadat), 'application/json; charset=UTF-8'),
     'file': open(pat, "rb")
@@ -38,8 +35,8 @@ def home():
     id=js['id']
     link=f"https://drive.google.com/file/d/{id}/view?usp=sharing"
     url=pyqrcode.create(link)
-    url.png(f"static/{filename}qr.png", scale = 6)
-    image=f"{filename}qr.png"
+    url.png("static/{filename}qr.png".format(filename=filename), scale = 6)
+    image="{filename}qr.png".format(filename=filename)
     print(image)
     return render_template('main.html',image=image)
 if __name__=="__main__":
