@@ -33,7 +33,7 @@ def home():
     print(r)
     js=r.json()
     id=js['id']
-    link=f"https://drive.google.com/file/d/{id}/view?usp=sharing"
+    link="https://drive.google.com/file/d/{id}/view?usp=sharing".format(id=id)
     url=pyqrcode.create(link)
     url.png("static/{filename}qr.png".format(filename=filename), scale = 6)
     image="{filename}qr.png".format(filename=filename)
