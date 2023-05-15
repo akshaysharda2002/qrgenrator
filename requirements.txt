@@ -1,0 +1,4 @@
+Flask==2.2.2
+pypng==0.20220715.0
+PyQRCode==1.2.1
+Requests==2.30.0
