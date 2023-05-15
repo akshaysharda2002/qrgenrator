@@ -1,0 +1,8 @@
+version: '3'
+services:
+  qrcodegenerator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9090:5000
