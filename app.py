@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def ho():
-    return render_template('main.html',image="default.jpg")
+    return render_template('index.html',image="default.jpg")
 @app.route("/loading", methods=['GET', 'POST'])
 def home():
     f = request.files['file']
